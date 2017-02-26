@@ -1,0 +1,50 @@
+{
+	"name": "minifranske/dominant-image-color",
+	"type": "typo3-cms-extension",
+	"description": "Determine the dominant image color to use as background for lazy loading images etc",
+	"license": ["GPL-2.0+"],
+	"require": {
+		"php": ">=5.5.0",
+		"typo3/cms-core": ">=7.6.0,<8.9.99",
+		"ksubileau/color-thief-php": "^1.3.0"
+	},
+	"replace": {
+		"dominant_image_color": "self.version",
+		"typo3-ter/dominant_image_color": "self.version"
+	},
+	"require-dev": {
+		"mikey179/vfsStream": "1.4.*@dev",
+		"phpunit/phpunit": "~4.8.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"MiniFranske\\DominantImageColor\\": "Classes/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"MiniFranske\\DominantImageColor\\Tests\\": "Tests",
+			"TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/core/Tests/",
+			"TYPO3\\CMS\\Fluid\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/fluid/Tests/"
+		}
+	},
+	"config": {
+		"vendor-dir": ".Build/vendor",
+		"bin-dir": ".Build/bin"
+	},
+	"scripts": {
+		"post-autoload-dump": [
+			"mkdir -p .Build/Web/typo3conf/ext/",
+			"[ -L .Build/Web/typo3conf/ext/dominant_image_color ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/dominant_image_color"
+		]
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		},
+		"typo3/cms": {
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"web-dir": ".Build/Web"
+		}
+	}
+}
