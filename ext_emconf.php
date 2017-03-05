@@ -1,7 +1,7 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'Dominant image color extractor',
-    'description' => 'Determine the dominant image color to use as background for lazy loading images etc',
+    'title' => 'Lazy load placeholders',
+    'description' => 'Create placeholders for lazy loading images for instance based on the dominant image color',
     'category' => 'be',
     'state' => 'stable',
     'clearCacheOnLoad' => 1,

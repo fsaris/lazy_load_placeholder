@@ -1,5 +1,5 @@
 <?php
-namespace MiniFranske\DominantImageColor\Resource\Extractor;
+namespace MiniFranske\LazyLoadPlaceholder\Resource\Extractor;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -20,7 +20,7 @@ use ColorThief\ColorThief;
 
 /**
  * Class DominantColorExtractor
- * @package MiniFranske\DominantImageColor\Resource\Extractor
+ * @package MiniFranske\LazyLoadPlaceholder\Resource\Extractor
  */
 class DominantColorExtractor implements ExtractorInterface
 {

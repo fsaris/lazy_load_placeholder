@@ -1,7 +1,15 @@
 {
-	"name": "minifranske/dominant-image-color",
+	"name": "minifranske/lazy-load-placeholder",
 	"type": "typo3-cms-extension",
-	"description": "Determine the dominant image color to use as background for lazy loading images etc",
+	"description": "Create placeholders for lazy loading images for instance based on the dominant image color",
+	"keywords": [
+		"TYPO3",
+		"extension",
+		"images",
+		"lazyloading",
+		"placeholder",
+		"dominant-color"
+	],
 	"license": ["GPL-2.0+"],
 	"require": {
 		"php": ">=5.5.0",
@@ -9,8 +17,8 @@
 		"ksubileau/color-thief-php": "^1.3.0"
 	},
 	"replace": {
-		"dominant_image_color": "self.version",
-		"typo3-ter/dominant_image_color": "self.version"
+		"lazy_load_placeholder": "self.version",
+		"typo3-ter/lazy_load_placeholder": "self.version"
 	},
 	"require-dev": {
 		"mikey179/vfsStream": "1.4.*@dev",
@@ -18,12 +26,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"MiniFranske\\DominantImageColor\\": "Classes/"
+			"MiniFranske\\LazyLoadPlaceholder\\": "Classes/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"MiniFranske\\DominantImageColor\\Tests\\": "Tests",
+			"MiniFranske\\LazyLoadPlaceholder\\Tests\\": "Tests",
 			"TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/core/Tests/",
 			"TYPO3\\CMS\\Fluid\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/fluid/Tests/"
 		}
@@ -35,7 +43,7 @@
 	"scripts": {
 		"post-autoload-dump": [
 			"mkdir -p .Build/Web/typo3conf/ext/",
-			"[ -L .Build/Web/typo3conf/ext/dominant_image_color ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/dominant_image_color"
+			"[ -L .Build/Web/typo3conf/ext/lazy_load_placeholder ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/lazy_load_placeholder"
 		]
 	},
 	"extra": {

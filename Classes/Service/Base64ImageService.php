@@ -1,5 +1,5 @@
 <?php
-namespace MiniFranske\DominantImageColor\Service;
+namespace MiniFranske\LazyLoadPlaceholder\Service;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\SingletonInterface;
 
 /**
  * Class GifBuilderService
- * @package MiniFranske\DominantImageColor\Service
+ * @package MiniFranske\LazyLoadPlaceholder\Service
  */
 class Base64ImageService implements SingletonInterface
 {

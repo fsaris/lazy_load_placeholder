@@ -1,5 +1,5 @@
 <?php
-namespace MiniFranske\DominantImageColor\ViewHelpers;
+namespace MiniFranske\LazyLoadPlaceholder\ViewHelpers;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -13,7 +13,7 @@ namespace MiniFranske\DominantImageColor\ViewHelpers;
  *
  * The TYPO3 project - inspiring people to share!
  */
-use MiniFranske\DominantImageColor\Service\Base64ImageService;
+use MiniFranske\LazyLoadPlaceholder\Service\Base64ImageService;
 use TYPO3\CMS\Core\Imaging\ImageManipulation\CropVariantCollection;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
 
