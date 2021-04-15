@@ -16,6 +16,7 @@ namespace MiniFranske\LazyLoadPlaceholder\ViewHelpers;
 use MiniFranske\LazyLoadPlaceholder\Service\Base64ImageService;
 use TYPO3\CMS\Core\Imaging\ImageManipulation\CropVariantCollection;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper;
 
 /**
  * Resizes a given image (if required) and renders the respective img tag with a placeholder image in src and
@@ -30,7 +31,7 @@ use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
  * <img alt="alt set in image record" src="data:image/svg+xml;base64...." data-src="fileadmin/_processed_/323223424.png" width="396" height="375" />
  * </output>
  */
-class LazyImageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper
+class LazyImageViewHelper extends AbstractTagBasedViewHelper
 {
     /**
      * @var string
@@ -96,17 +97,17 @@ class LazyImageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBa
      *
      * @see https://docs.typo3.org/typo3cms/TyposcriptReference/ContentObjects/Image/
      *
-     * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception
+     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
      * @return string Rendered tag
      */
     public function render()
     {
         if ((is_null($this->arguments['src']) && is_null($this->arguments['image'])) || (!is_null($this->arguments['src']) && !is_null($this->arguments['image']))) {
-            throw new \TYPO3\CMS\Fluid\Core\ViewHelper\Exception('You must either specify a string src or a File object.', 1382284106);
+            throw new \TYPO3Fluid\Fluid\Core\ViewHelper\Exception('You must either specify a string src or a File object.', 1382284106);
         }
 
         try {
-            $image = $this->imageService->getImage($this->arguments['src'], $this->arguments['image'], $this->arguments['treatIdAsReference']);
+            $image = $this->imageService->getImage($this->arguments['src'] ?? '', $this->arguments['image'], (bool)$this->arguments['treatIdAsReference']);
             $cropString = $this->arguments['crop'];
             if ($cropString === null && $image->hasProperty('crop') && $image->getProperty('crop')) {
                 $cropString = $image->getProperty('crop');
